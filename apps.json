@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Copyparty",
+    "icon": "https://raw.githubusercontent.com/9001/copyparty/hovudstraum/docs/logo.svg",
+    "url": "https://192.168.1.233:3923/"
+  },
+  {
+    "name": "Plex",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Plex_logo_2022.svg/1920px-Plex_logo_2022.svg.png",
+    "url": "http://192.168.1.233:32400/web/index.html#!"
+  }
+]

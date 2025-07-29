@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App Launcher</title>
+  <style>
+    body { 
+        font-family: monospace; 
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        box-sizing: border-box;
+        background-color: #1E1E1E;
+        display: flex;
+        justify-content: center;
+        font-size: 20px;
+    }
+    @media (max-width: 1000px) {
+      body {
+        font-size: 50px;
+      }
+    }
+    .content{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 4em auto;
+        width: 60vw;
+        justify-content: center;
+    }
+    h1 {
+        text-align: center;
+        margin: 0.5em 0em;
+        color: #eee;
+        text-shadow: 0 0 10px rgba(255,255,255,0.2);
+        font-size: 2em;
+    }
+    .apps { 
+        width: auto;
+        height: auto;
+        padding: 1em;
+        justify-content: space-evenly;
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 10px; 
+    }
+    .app {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 10em;
+        height: 10em;
+        padding: 10px;
+        border: solid 1px rgba(255,255,255,0.4);
+        text-align: center;
+        transition: all 0.2s;
+        color: #eee;
+        text-shadow: 0 0 10px rgba(255,255,255,0.2);
+        box-shadow: 0 0 6px rgba(255,255,255,0.1); 
+        filter: drop-shadow(0 0 6px rgba(255,255,255,0.1) );
+    }
+    .app:hover { 
+        filter: drop-shadow(0 0 10px rgba(255,255,255,0.4) );
+        box-shadow: 0 0 10px rgba(255,255,255,0.2); 
+        transform: scale(105%);
+    }
+    .app-icon {
+        width: 80%;
+        height: 80%;
+        margin-bottom: 8px;
+        object-fit: contain;
+    }
+    a { text-decoration: none; color: inherit; }
+    .status-indicator {
+      display: inline-block;
+      width: 0.3em;
+      height: 0.3em;
+      border-radius: 50%;
+      margin-right: 4px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    }
+    .status-indicator.up {
+      background: #3fa34d;
+      box-shadow: 0 0 4px #3fa34d;
+    }
+    .status-indicator.down {
+      background: #d7263d;
+      box-shadow: 0 0 4px #d7263d;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+  <h1>hey dere :)</h1>
+  <div class="apps">
+    <% apps.forEach(app => { %>
+      <a href="<%= app.url %>" target="_self" class="app">
+        <img src="<%= app.icon %>" alt="<%= app.name %>" class="app-icon" />
+        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 1em;">
+          <span class="status-indicator <%= app.status === 'up' ? 'up' : 'down' %>"></span>
+          <%= app.name %>
+        </div>
+      </a>
+    <% }) %>
+  </div>
+  </div>
+</body>
+</html>
